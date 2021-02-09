@@ -1,4 +1,4 @@
-# BuyCoins API library (Python v1)
+# BuyCoins API library
 A Python module for interacting with buyCoins API. [See official documentation](https://developers.buycoins.africa/)
 ## Getting started
 Installation via Pip:
@@ -113,3 +113,8 @@ To run tests, do:
 ```sh
 pytest -sv
 ```
+
+## License
+(c) 2021 Immanuel Kolapo
+
+This repository is licensed under the MIT license. See LICENSE for details.
