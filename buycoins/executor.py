@@ -31,6 +31,6 @@ class Executor:
             return error
         else:
             if results.text == "":
-                return {"data": None}
+                return {"data": None, "message": "Empty response!"}
 
             return results.json()
