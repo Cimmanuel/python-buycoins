@@ -29,6 +29,6 @@ class Executor:
                 auth=HTTPBasicAuth(self.username, self.password),
             )
         except (ConnectionError, JSONDecodeError) as error:
-            return error
+            raise error
         else:
             return results.json()
