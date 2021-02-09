@@ -107,3 +107,9 @@ Sell supported cryptocurrencies. If *price* is not specified, it fetches an acti
 Send supported cryptocurrencies to external address.
 ##### ```send_off_chain(self, amount, recipient, cryptocurrency="bitcoin", query=SEND_OFF_CHAIN)```
 Send supported cryptocurrencies to internal BuyCoins users.
+
+## Running tests
+To run tests, do:
+```sh
+pytest -sv
+```
