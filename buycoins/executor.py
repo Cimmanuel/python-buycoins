@@ -1,5 +1,4 @@
 import json
-from json.decoder import JSONDecodeError
 from typing import Any, Dict, List, Optional
 
 import requests
@@ -28,7 +27,10 @@ class Executor:
                 json={"query": query, "variables": variables},
                 auth=HTTPBasicAuth(self.username, self.password),
             )
-        except (ConnectionError, JSONDecodeError) as error:
-            raise error
+        except ConnectionError as error:
+            return error
         else:
+            if results.text == "":
+                return {"data": None}
+
             return results.json()
