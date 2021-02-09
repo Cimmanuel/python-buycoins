@@ -290,3 +290,246 @@ get_prices = {
 
 # Mutation responses
 
+buy_default = {
+    "data": {
+        "buy": {
+            "id": "QnV5Y29pbnNQcmljZS11MENzAnJ31T2jNaBzMRR3ZaRuZkGkAD2lAUN3NkMiNUGjAnV=",
+            "price": {
+                "id": "QnV5Y29pbnNQcmljZS01OTkwYTQ0NC1hYjY4LTQxM2MtODUzZC04OWJhYzRhMWNjZjE=",
+                "status": "active",
+                "cryptocurrency": "bitcoin",
+                "minBuy": "0.001",
+                "minSell": "0.001",
+                "maxBuy": "1.78700697",
+                "maxSell": "1.20119207",
+                "minCoinAmount": "0.001",
+                "expiresAt": 1612847212,
+                "buyPricePerCoin": "21956210.523",
+                "sellPricePerCoin": "21521388.24",
+            },
+            "cryptocurrency": "bitcoin",
+            "filledCoinAmount": "1.230000",
+            "side": "buy",
+            "status": "pending",
+            "totalCoinAmount": "0.03",
+            "createdAt": 1612847212,
+        }
+    }
+}
+
+buy_ethereum = {
+    "data": {
+        "buy": {
+            "id": "QnV5Y29pbnNQcmljZS16iR364whgHoYiAMsKGpxJEWIZmOTjqz7OssziZyAbtnlSVC=",
+            "price": {
+                "id": "QnV5Y29pbnNQcmljZS05MjQwNmQ0Zi00MmJlLTQ2MjEtOTY1Ny1mYTM0OGZkNmI2NDE=",
+                "status": "active",
+                "cryptocurrency": "ethereum",
+                "minBuy": "0.02",
+                "minSell": "0.02",
+                "maxBuy": "48.12180182",
+                "maxSell": "0",
+                "minCoinAmount": "0.02",
+                "expiresAt": 1612847212,
+                "buyPricePerCoin": "815345.6391",
+                "sellPricePerCoin": "799154.344",
+            },
+            "cryptocurrency": "ethereum",
+            "filledCoinAmount": "3.223432",
+            "side": "buy",
+            "status": "done",
+            "totalCoinAmount": "1.3",
+            "createdAt": 1612847212,
+        }
+    }
+}
+
+cancel_withdrawal = {
+    "data": {
+        "cancelWithdrawal": {
+            "id": "QWRkcmVzcy1hz8V54ffgpB2pX52m8IG2fMgToM2ln5H3k3QJYNyShpz8EiF=",
+            "fee": "0.046",
+            "amount": "100000.00",
+            "createdAt": 1612847212,
+            "reference": "zmJxqDM3-dz_sPoi7LwalRM5N8Q711BllncBuq476xw",
+            "status": "pending",
+            "totalAmount": "100000.046",
+            "type": "withdrawal",
+        }
+    }
+}
+
+create_address_default = {
+    "data": {
+        "createAddress": {
+            "id": "QWRkcmVzcy1hMWU2YTRlMy1iOTBhLTQwMWEtOWNkZS00OTM5NWZlOWIzZWY=",
+            "address": "39pxTA36PmUokoKEnHB41Lg8Kh2uw6q8o8",
+            "cryptocurrency": "bitcoin",
+            "createdAt": 1612857009,
+        }
+    }
+}
+
+create_address_ethereum = {
+    "data": {
+        "createAddress": {
+            "id": "QWRkcmVzcy05NmQyZDdmNS05NDgxLTQwODMtODdlOC01ZjdmM2QwODZiYzg=",
+            "address": "0x64b82318cadaf1209b16726d5634455762748a90",
+            "cryptocurrency": "ethereum",
+            "createdAt": 1612857154,
+        }
+    }
+}
+
+create_deposit_account = {
+    "data": {
+        "createDepositAccount": {
+            "id": "QmFua0FjY291bnTffyORgTFvah6zcxBllmkbEcJb6gQigoWKwbl6yCP2MWY1Yjkz",
+            "bankName": "Providus Bank",
+            "accountName": "Dummy User",
+            "accountNumber": "9008007000",
+            "accountType": "deposit",
+            "accountReference": "3T3B_3TM9kuf-rBenmSvN-RL",
+        }
+    }
+}
+
+create_withdrawal = {
+    "data": {
+        "createWithdrawal": {
+            "id": "QWRkcmVzcy1hz8V5vMlQ1f4Kk9MUziKwKdtiOAll2qPRpdve6S4wWaUBeYk=",
+            "fee": "0.046",
+            "amount": "100000.00",
+            "createdAt": 1612867302,
+            "reference": "hPm000GJBexlW2cfeYsalonCwTxzSXNwh-QoAEv_A8s",
+            "status": "pending",
+            "totalAmount": "100000.046",
+            "type": "withdrawal",
+        }
+    }
+}
+
+post_limit_order = {
+    "data": {
+        "postLimitOrder": {
+            "id": "UG9zdE9yZGVyLWYyNGMzNmVlLTAwZmMtNGM1Ny04MmJkLWYzOGI4ZTA0MTAxMw==",
+            "cryptocurrency": "bitcoin",
+            "coinAmount": "0.00819931",
+            "side": "buy",
+            "status": "inactive",
+            "createdAt": 1612867863,
+            "pricePerCoin": "2205000000.0",
+            "priceType": "static",
+            "staticPrice": "220500000000",
+            "dynamicExchangeRate": None,
+        }
+    }
+}
+
+post_market_order = {
+    "data": {
+        "postMarketOrder": {
+            "id": "UG9zdE9yZGVyLWYyNGMzHMGTaSx0XuVMIiI7qXyRnZ7MzuooxOApisAuIov3k8==",
+            "cryptocurrency": "bitcoin",
+            "coinAmount": "0.0004",
+            "side": "sell",
+            "status": "active",
+            "createdAt": 1612867873,
+            "pricePerCoin": "2205000000.0",
+            "priceType": "static",
+            "staticPrice": "220500000000",
+            "dynamicExchangeRate": None,
+        }
+    }
+}
+
+sell_default = {
+    "data": {
+        "sell": {
+            "id": "QnV5Y29pbnNQcmljZS11KSkCEauCpTyq3vbbW6TKrjIfwfvjcVJYvomfKOtJTRwjAnV=",
+            "price": {
+                "id": "QnV5Y29pbnNQcmljZS01OTkwYTQ0NC1hYjY4LTQxM2MtODUzZC04OWJhYzRhMWNjZjE=",
+                "status": "active",
+                "cryptocurrency": "bitcoin",
+                "minBuy": "0.001",
+                "minSell": "0.001",
+                "maxBuy": "1.78700697",
+                "maxSell": "1.20119207",
+                "minCoinAmount": "0.001",
+                "expiresAt": 1612847212,
+                "buyPricePerCoin": "21956210.523",
+                "sellPricePerCoin": "21521388.24",
+            },
+            "cryptocurrency": "bitcoin",
+            "filledCoinAmount": "1.230000",
+            "side": "sell",
+            "status": "pending",
+            "totalCoinAmount": "0.03",
+            "createdAt": 1612847212,
+        }
+    }
+}
+
+sell_ethereum = {
+    "data": {
+        "sell": {
+            "id": "QnV5Y29pbnNQcmljZS16CZ3R79tuZUJFTSCaWzqnMKe0a17EWh35i1WZhdW5Mg8SVC=",
+            "price": {
+                "id": "QnV5Y29pbnNQcmljZS05MjQwNmQ0Zi00MmJlLTQ2MjEtOTY1Ny1mYTM0OGZkNmI2NDE=",
+                "status": "active",
+                "cryptocurrency": "ethereum",
+                "minBuy": "0.02",
+                "minSell": "0.02",
+                "maxBuy": "48.12180182",
+                "maxSell": "0",
+                "minCoinAmount": "0.02",
+                "expiresAt": 1612847212,
+                "buyPricePerCoin": "815345.6391",
+                "sellPricePerCoin": "799154.344",
+            },
+            "cryptocurrency": "ethereum",
+            "filledCoinAmount": "3.223432",
+            "side": "sell",
+            "status": "done",
+            "totalCoinAmount": "1.3",
+            "createdAt": 1612847212,
+        }
+    }
+}
+
+send = {
+    "data": {
+        "send": {
+            "id": "QnV5Y29pbnNQcmljZS16CZ3RctvVxtbTeS51jh1aQrmCZkxoMdKw8isRG89UbZovH4=",
+            "fee": "0.00024",
+            "amount": "0.2",
+            "address": "39pxTA36PmUokoKEnHB41Lg8Kh2uw6q8o8",
+            "cryptocurrency": "bitcoin",
+            "status": "processing",
+            "transaction": {
+                "id": "QnV5Y29pbnNQcmljZS16CZ3RctvVxtAP99KXU9M9nYA2Atqs3CU1nBvdZWnWmt1soY=",
+                "address": {
+                    "id": "QWRkcmVzcy05NmQyZDdmNS05NDgxLTQwODMtODdlOC01ZjdmM2QwODZiYzg=",
+                    "cryptocurrency": "bitcoin",
+                    "address": "39pxTA36PmUokoKEnHB41Lg8Kh2uw6q8o8",
+                    "createdAt": 1612857154,
+                },
+                "txhash": "8223715e93f1c8715a8070b323acee111c1cadeb1eff16fe44b60e4269c175ab",
+                "amount": "0.2",
+                "confirmed": False,
+                "cryptocurrency": "bitcoin",
+                "direction": "outgoing",
+                "createdAt": 1612871202,
+            },
+            "createdAt": 1612871202,
+        }
+    }
+}
+
+send_off_chain = {
+    "data": {
+        "sendOffchain": {
+            "initiated": True
+        }
+    }
+}
