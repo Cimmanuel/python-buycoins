@@ -14,7 +14,6 @@ class TestQueries:
 
         assert "getBalances" in balances["data"]
         assert len(balances["data"]["getBalances"]) == 6
-
         for currency in balances["data"]["getBalances"]:
             assert currency["cryptocurrency"] in allowed_currencies
 
@@ -118,7 +117,6 @@ class TestQueries:
         buy_node = market_book["data"]["getMarketBook"]["orders"]["edges"][0]["node"]
         sell_node = market_book["data"]["getMarketBook"]["orders"]["edges"][1]["node"]
 
-        assert "getMarketBook" in market_book["data"]
         assert len(market_book["data"]["getMarketBook"]["orders"]["edges"]) == 2
         assert buy_node["id"] == "UG9zdE9yZGVyLTcxY2JmZjAxLTk2NTEtNGQzOC1hMGIyLWE2YzRkMDUzNWVkMA=="
         assert buy_node["cryptocurrency"] == "bitcoin"
@@ -147,7 +145,6 @@ class TestQueries:
         buy_node = market_book["data"]["getMarketBook"]["orders"]["edges"][0]["node"]
         sell_node = market_book["data"]["getMarketBook"]["orders"]["edges"][1]["node"]
 
-        assert "getMarketBook" in market_book["data"]
         assert len(market_book["data"]["getMarketBook"]["orders"]["edges"]) == 2
         assert buy_node["id"] == "UG9zdE9yZGVyLWZmYTliOTdiLThmZjUtNDE4Mi05ZDJjLWM4ZWM5MzNlMTliZg=="
         assert buy_node["cryptocurrency"] == "usd_tether"
@@ -175,7 +172,6 @@ class TestQueries:
 
         node = orders["data"]["getOrders"]["orders"]["edges"][0]["node"]
 
-        assert "getOrders" in orders["data"]
         assert node["id"] == "UG9zdE9yZGVyLWEzYTAwNzQxLTJhMWUtNGJkMi1iZWFkLWE2ZWU0MzQ1ZmI2Yw=="
         assert node["cryptocurrency"] == "bitcoin"
         assert node["coinAmount"] == "0.005"
@@ -186,8 +182,55 @@ class TestQueries:
         assert node["priceType"] == "static"
         assert node["staticPrice"] == "1090009"
 
-    # def test_get_payments(self):
-    #     self.Query.get_payments.return_value = responses.get_payments
-    #     payments = self.Query.get_payments()
+    def test_get_payments(self):
+        self.Query.get_payments.return_value = responses.get_payments
+        payments = self.Query.get_payments()
 
-    #     node = 
+        node = payments["data"]["getPayments"]["edges"][0]["node"]
+
+        assert node["id"] == "UG9zdE9yZGVyLTg5MDM4MzI4LTc5MzItNGUxMS1hZWZjLTkwYjg4ZTFhY2JjOA=="
+        assert node["fee"] == "0.0046"
+        assert node["amount"] == "10000.00"
+        assert node["createdAt"] == 1605000847
+        assert node["reference"] == "38d5d9018bde98e88058746788d72e936d158f5ad753073f4763dc1d4aa5a48e"
+        assert node["status"] == "success"
+        assert node["totalAmount"] == "10000.004600"
+        assert node["type"] == "deposit"
+
+    def test_get_prices(self):
+        self.Query.get_prices.return_value = responses.get_prices
+        prices = self.Query.get_prices()
+
+        assert len(prices["data"]["getPrices"]) == 4
+        for price in prices["data"]["getPrices"]:
+            assert price["cryptocurrency"] in allowed_currencies
+
+        bitcoin_price = prices["data"]["getPrices"][0]
+        assert bitcoin_price["id"] == "QnV5Y29pbnNQcmljZS01OTkwYTQ0NC1hYjY4LTQxM2MtODUzZC04OWJhYzRhMWNjZjE="
+        assert bitcoin_price["status"] == "active"
+        assert bitcoin_price["cryptocurrency"] == "bitcoin"
+        assert bitcoin_price["minBuy"] == "0.001"
+        assert bitcoin_price["minSell"] == "0.001"
+        assert bitcoin_price["maxBuy"] == "1.78700697"
+        assert bitcoin_price["maxSell"] == "1.20119207"
+        assert bitcoin_price["minCoinAmount"] == "0.001"
+        assert bitcoin_price["expiresAt"] == 1612847212
+        assert bitcoin_price["buyPricePerCoin"] == "21956210.523"
+        assert bitcoin_price["sellPricePerCoin"] == "21521388.24"
+
+    def test_get_specific_price(self):
+        self.Query.get_prices.return_value = responses.get_price
+        prices = self.Query.get_prices(cryptocurrency="ethereum")
+
+        eth_price = prices["data"]["getPrices"][0]
+        assert eth_price["id"] == "QnV5Y29pbnNQcmljZS0yOWFmZWY4MS1mZjI5LTQwYTQtYmQ3Zi1iOTgzMTA3NmU5NDg="
+        assert eth_price["status"] == "active"
+        assert eth_price["cryptocurrency"] == "ethereum"
+        assert eth_price["minBuy"] == "0.02"
+        assert eth_price["minSell"] == "0.02"
+        assert eth_price["maxBuy"] == "48.07685652"
+        assert eth_price["maxSell"] == "0"
+        assert eth_price["minCoinAmount"] == "0.02"
+        assert eth_price["expiresAt"] == 1612847332
+        assert eth_price["buyPricePerCoin"] == "816107.8759"
+        assert eth_price["sellPricePerCoin"] == "799786.8945"
